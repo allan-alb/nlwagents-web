@@ -1,6 +1,6 @@
 # NLW Agents
 
-NLW Agents is a web application developed during a Rocketseat event. This project leverages modern web technologies and best practices for a fast, maintainable, and scalable codebase.
+NLW Agents is an interactive Q&A web application that enables users to ask questions about a given spoken content. Users can record and send audio messages, which are automatically transcribed by the system. After the transcription, users can submit questions related to the audio content, and the application generates relevant answers based on the transcribed information. This workflow allows for a seamless, voice-first Q&A experience, making it easy to extract knowledge from spoken input and interact with the system using natural language.
 
 ## Tech Stack
 
@@ -49,4 +49,5 @@ NLW Agents is a web application developed during a Rocketseat event. This projec
 - **Biome** is configured via `biome.jsonc` for code formatting.
 
 ---
+
 Developed during Rocketseat's NLW event.
