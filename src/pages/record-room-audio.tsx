@@ -1,7 +1,15 @@
 /** biome-ignore-all lint/suspicious/noConsole: testing */
 import { useRef, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { ArrowLeft, Pause, Radio } from "lucide-react";
 import { Button } from "../components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { SoundWave } from "../components/ui/SoundWave";
 
 const isRecordingSupported =
   !!navigator.mediaDevices &&
@@ -102,13 +110,53 @@ export function RecordRoomAudio() {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center gap-3">
-      {isRecording ? (
-        <Button onClick={stopRecording}>Pausar gravação</Button>
-      ) : (
-        <Button onClick={startRecording}>Gravar áudio</Button>
-      )}
-      {isRecording ? <p>Gravando... </p> : <p>Pausado</p>}
+    <div className="min-h-screen bg-zinc-950">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
+        <div className="mb-4 flex items-center justify-start">
+          <Link to={`/room/${params.roomId}`}>
+            <Button variant="outline">
+              <ArrowLeft className="mr-2 size-4" />
+              Voltar para sala
+            </Button>
+          </Link>
+        </div>
+        <div className="flex h-screen flex-col items-center gap-3">
+          <h1 className="mb-2 font-bold text-3xl text-foreground">
+            Gravar áudio
+          </h1>
+          <p className="text-muted-foreground">
+            Grave o áudio de referência para esta sala
+          </p>
+          <Card>
+            <CardContent className="min-w-xl">
+              <CardHeader className="justify-center">
+                <CardTitle className="font-medium text-neutral-500">
+                  {isRecording ? (
+                    <span>Gravando... </span>
+                  ) : (
+                    <span>Pausado</span>
+                  )}
+                </CardTitle>
+              </CardHeader>
+              <div className="w-full p-2">
+                <SoundWave barCount={15} active={isRecording} />
+
+                <div className="flex w-full flex-row items-center justify-end">
+                  {isRecording ? (
+                    <Button onClick={stopRecording}>
+                      <Pause className="size-4" /> Pausar gravação
+                    </Button>
+                  ) : (
+                    <Button onClick={startRecording}>
+                      <Radio className="size-4" /> Gravar áudio
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
