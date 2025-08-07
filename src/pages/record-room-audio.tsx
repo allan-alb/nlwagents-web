@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, Pause, Radio } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -40,21 +41,33 @@ export function RecordRoomAudio() {
   }
 
   async function uploadAudio(audio: Blob) {
-    const formData = new FormData();
+    try {
+      const formData = new FormData();
 
-    formData.append("file", audio, "audio.webm");
+      formData.append("file", audio, "audio.webm");
 
-    const response = await fetch(
-      `http://localhost:3333/rooms/${params.roomId}/audio`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+      const response = await fetch(
+        `http://localhost:3333/rooms/${params.roomId}/audio`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
-    const result = await response.json();
+      const result = await response.json();
 
-    console.log(result);
+      recorder.current?.stop();
+
+      console.log("Data uploaded", result);
+      toast("Upload concluído", {
+        description: "Gravação enviada com sucesso",
+      });
+    } catch (error) {
+      toast("Ocorreu um erro", {
+        description: "Não foi possível concluir o envio da gravação",
+      });
+      console.log("Error while uploading recording", error);
+    }
   }
 
   function createRecorder(audio: MediaStream) {
