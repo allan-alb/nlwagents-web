@@ -2,8 +2,9 @@
 
 NLW Agents is an interactive Q&A web application that enables users to ask questions about a given spoken content. Users can record and send audio messages, which are automatically transcribed by the system. After the transcription, users can submit questions related to the audio content, and the application generates relevant answers based on the transcribed information. This workflow allows for a seamless, voice-first Q&A experience, making it easy to extract knowledge from spoken input and interact with the system using natural language.
 
-![nlwagents-web-0806](https://github.com/user-attachments/assets/0940660a-ea97-41c8-b892-cf362e90d12c)
-
+<p alingn="center">
+   <img src="https://github.com/user-attachments/assets/4a6c8efe-d13f-4bd6-aa00-6a24070281c5" />
+</p>
 
 ## Tech Stack
 
