@@ -2,6 +2,9 @@
 
 NLW Agents is an interactive Q&A web application that enables users to ask questions about a given spoken content. Users can record and send audio messages, which are automatically transcribed by the system. After the transcription, users can submit questions related to the audio content, and the application generates relevant answers based on the transcribed information. This workflow allows for a seamless, voice-first Q&A experience, making it easy to extract knowledge from spoken input and interact with the system using natural language.
 
+![nlwagents-web-0806](https://github.com/user-attachments/assets/0940660a-ea97-41c8-b892-cf362e90d12c)
+
+
 ## Tech Stack
 
 - **React 19** – UI library for building interactive interfaces
@@ -23,6 +26,8 @@ NLW Agents is an interactive Q&A web application that enables users to ask quest
 - Styles are managed with Tailwind CSS and custom CSS variables
 
 ## Setup Instructions
+
+> **Note**: Make sure you have **Node.js v22.16.0 or higher** installed.
 
 1. **Install dependencies:**
    ```bash
